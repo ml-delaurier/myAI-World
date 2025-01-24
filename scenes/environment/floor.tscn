@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7r052b84ujcm"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_floor"]
+height = 0.2
+radius = 7.9952
+
+[node name="Floor" type="StaticBody3D"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_floor")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+snap = 0.00077
+radius = 8.0
+height = 0.2
+sides = 64

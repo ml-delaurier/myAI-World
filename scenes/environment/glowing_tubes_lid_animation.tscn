@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba5g3k2rxoox0"]
+
+[ext_resource type="PackedScene" uid="uid://dg15u4k26j8ki" path="res://assets/models/glowing_tubes_in_case_with_lid/glowing_tubes_in_case_with_lid.glb" id="1_hhh61"]
+[ext_resource type="Script" path="res://scripts/lid_animation_player.gd" id="2_k3p4l"]
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_hhh61")]
+script = ExtResource("2_k3p4l")
+
+[node name="Slice_001_25" parent="Sketchfab_model/root/GLTF_SceneRootNode" index="2"]
+transform = Transform3D(1, 2.68983e-24, 2.28445e-24, -2.6915e-24, 0.162637, 0.986686, 2.28249e-24, -0.986686, 0.162637, 0, 2.26868, -0.430675)

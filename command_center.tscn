@@ -1,0 +1,278 @@
+[gd_scene load_steps=27 format=3 uid="uid://bggh0trh6u5b"]
+
+[ext_resource type="PackedScene" uid="uid://b4abkm5ilohns" path="res://assets/models/Structures/small_hexagon_glass_dome/small_hexagon_glass_dome.glb" id="1_5x4t5"]
+[ext_resource type="Texture2D" uid="uid://dfl21tnkgpf4k" path="res://assets/textures/environment/skybox/NightSky.jpg" id="5_sky"]
+[ext_resource type="PackedScene" uid="uid://rt3dngi1l4rk" path="res://assets/models/stasis_clone/stasis_clone.glb" id="6_1fpfc"]
+[ext_resource type="PackedScene" uid="uid://d3g51tn7td6jt" path="res://assets/models/NPC/coot_the_robot/scene.gltf" id="7_hh1m2"]
+[ext_resource type="PackedScene" uid="uid://cwosye8esdfhx" path="res://scenes/player/player.tscn" id="7_player"]
+[ext_resource type="PackedScene" uid="uid://q2k2wbkeed2d" path="res://assets/models/NPC/floating_robot/old_nasa_style_computer_console.glb" id="8_1malp"]
+[ext_resource type="PackedScene" uid="uid://bg5m37roghi5v" path="res://assets/models/Structures/simon_stalenhag_environment_project_flying_ads/simon_stalenhag_environment_project_flying_ads.glb" id="8_ylgsa"]
+[ext_resource type="PackedScene" uid="uid://f6q1lxuhmwkg" path="res://assets/models/Set_Decoration/Props/Computers/cctv_console/cctv_console.glb" id="9_qwyvv"]
+[ext_resource type="PackedScene" uid="uid://cfg8rdm3yh4aj" path="res://assets/models/hologram_map/hologram_map.glb" id="10_kwg0o"]
+[ext_resource type="PackedScene" uid="uid://cj6vdhjx7gtan" path="res://assets/models/Set_Decoration/Vending_Machines/pipisi_vending_machine/pipisi_vending_machine.glb" id="11_eltld"]
+[ext_resource type="PackedScene" uid="uid://bud1md4t3ygt2" path="res://assets/models/Structures/sci_fi_eye_tech_small_market_stall/sci_fi_eye_tech_small_market_stall.glb" id="11_neueh"]
+[ext_resource type="PackedScene" uid="uid://bh18gyrcwvkue" path="res://assets/models/Set_Decoration/Vending_Machines/ramen_vending_machine/ramen_vending_machine.glb" id="12_1jyns"]
+[ext_resource type="PackedScene" uid="uid://m8lhu7n4f3od" path="res://assets/models/Set_Decoration/Lighting/sci-fi-lights/90_deg_corner_lamp/scifi_light_corner_lamp.glb" id="14_wayq3"]
+[ext_resource type="PackedScene" uid="uid://w1mm3jrl4486" path="res://assets/models/Set_Decoration/Props/robotic_arm/robotic_arm.glb" id="14_xdtmn"]
+[ext_resource type="PackedScene" uid="uid://b7r052b84ujcm" path="res://scenes/environment/floor.tscn" id="15_floor"]
+[ext_resource type="PackedScene" uid="uid://coiggwosqekgi" path="res://assets/models/Set_Decoration/Lighting/sci-fi-lights/tripod_work_light/tripod_work_light.glb" id="15_oj18f"]
+[ext_resource type="PackedScene" uid="uid://b0ar2fsasmhbr" path="res://assets/models/Set_Decoration/Props/Computers/scifi_terminal_2.glb" id="16_n74u0"]
+[ext_resource type="PackedScene" uid="uid://cb0opq4b3cytx" path="res://assets/models/walkie_talkie/mining_rig.glb" id="17_abikf"]
+[ext_resource type="PackedScene" uid="uid://cuyn4ixa4mde1" path="res://assets/models/interdimensional_floating_islands.glb" id="17_llx7a"]
+[ext_resource type="PackedScene" uid="uid://4y4wxurt8npj" path="res://assets/models/Structures/floating_island_mobile_home/floating_island_mobile_home.glb" id="21_36yit"]
+[ext_resource type="PackedScene" uid="uid://c84bmiw87y6l5" path="res://assets/models/Structures/rigged_sci-fi_lift_mobile_platform_elevator/rigged_sci-fi_lift_mobile_platform_elevator.glb" id="22_rj5b8"]
+[ext_resource type="PackedScene" uid="uid://cypput076qjlb" path="res://assets/models/Structures/scifi_station_demerzel/scifi_station_demerzel.glb" id="23_if4xy"]
+[ext_resource type="Script" path="res://scripts/aiassistant/AIAssistantController.gd" id="ai_assistant_script"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_2p4yl"]
+panorama = ExtResource("5_sky")
+
+[sub_resource type="Sky" id="Sky_j2mxn"]
+sky_material = SubResource("PanoramaSkyMaterial_2p4yl")
+
+[sub_resource type="Environment" id="Environment_8k4hy"]
+background_mode = 2
+background_energy_multiplier = 0.24
+sky = SubResource("Sky_j2mxn")
+ambient_light_color = Color(0.964742, 0.964742, 0.964742, 1)
+tonemap_mode = 3
+tonemap_exposure = 1.94
+glow_enabled = true
+fog_light_color = Color(0.0627451, 0.0705882, 0.0901961, 1)
+
+[node name="command_center" type="Node3D"]
+
+[node name="command_center_dome" parent="." instance=ExtResource("1_5x4t5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5976, 0)
+
+[node name="Floor" parent="command_center_dome" instance=ExtResource("15_floor")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0.589324, 0.429782)
+
+[node name="Player" parent="command_center_dome" instance=ExtResource("7_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1000, 0)
+
+[node name="stasis_clone" parent="command_center_dome" instance=ExtResource("6_1fpfc")]
+transform = Transform3D(1.62417, 0, 1.16708, 0, 2, 0, -1.16708, 0, 1.62417, -4.76074, 0.71237, -6.63495)
+
+[node name="stasis_clone_computer_console" parent="command_center_dome/stasis_clone" instance=ExtResource("8_1malp")]
+transform = Transform3D(0.085505, 0, -0.234923, 0, 0.25, 0, 0.234923, 0, 0.085505, 3.89703, -0.0164548, 2.76042)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="command_center_dome/stasis_clone/stasis_clone_computer_console"]
+transform = Transform3D(1.15286, 1.61878, 0.224624, -2.40315e-08, -0.274889, 1.98102, 1.63429, -1.14192, -0.158455, 0.652552, 5.11593, 1.01587)
+spot_range = 1.603
+spot_angle = 22.3624
+
+[node name="hologram_map" parent="command_center_dome/stasis_clone" instance=ExtResource("10_kwg0o")]
+transform = Transform3D(0.0468555, 0.00349344, 0.0170984, -0.00340024, 0.0498766, -0.000872619, -0.0171172, -0.000345034, 0.0469774, 4.36517, 1.02208, 3.95361)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="command_center_dome/stasis_clone"]
+transform = Transform3D(0.5, 0, -4.47035e-08, 0, 0.5, 0, 4.47035e-08, 0, 0.5, 0.0567299, 1.03117, 0.700153)
+light_color = Color(0.488179, 1, 0.456277, 1)
+light_energy = 0.666
+spot_range = 2.43145
+spot_angle = 51.9061
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="command_center_dome/stasis_clone"]
+transform = Transform3D(-0.2301, -0.231941, -0.378493, 0, 0.42632, -0.261249, 0.443908, -0.120227, -0.196192, 0.467542, 1.38064, 0.335283)
+light_color = Color(0.488179, 1, 0.456277, 1)
+light_energy = 0.666
+spot_range = 3.12362
+spot_angle = 61.4495
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="command_center_dome/stasis_clone"]
+transform = Transform3D(-0.101394, 0.255821, 0.417462, 0, 0.42632, -0.261249, -0.489611, -0.052978, -0.0864523, -0.323514, 1.38064, 0.526965)
+light_color = Color(0.488179, 1, 0.456277, 1)
+light_energy = 0.666
+spot_range = 3.12362
+spot_angle = 61.4495
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="command_center_dome/stasis_clone"]
+transform = Transform3D(-0.49989, -0.00352984, 0.00985847, 0, 0.470735, 0.168548, -0.0104714, 0.168511, -0.470632, 0.0382553, 1.54817, -1.5722)
+light_color = Color(7.26774e-06, 0.922831, 7.70092e-06, 1)
+light_energy = 2.488
+spot_range = 9.35655
+spot_angle = 27.9016
+
+[node name="AI_Assistant" parent="command_center_dome" instance=ExtResource("7_hh1m2")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.690855, 13.8104, -2.39021)
+script = ExtResource("ai_assistant_script")
+
+[node name="cctv_console" parent="command_center_dome" instance=ExtResource("9_qwyvv")]
+transform = Transform3D(-1.49934, 0, 0.0444994, 0, 1.5, 0, -0.0444994, 0, -1.49934, 0.204982, 0.62075, 4.75052)
+
+[node name="cctv_spolight" type="SpotLight3D" parent="command_center_dome/cctv_console"]
+transform = Transform3D(0.665561, -0.0205629, 0.0324019, 0, 0.562885, 0.357218, -0.038376, -0.356625, 0.561952, 0.165548, 3.12795, 0.971487)
+spot_range = 9.75779
+spot_angle = 18.9297
+
+[node name="market_stall" parent="command_center_dome" instance=ExtResource("11_neueh")]
+transform = Transform3D(-0.238533, 0, 0.971134, 0, 1, 0, -0.971134, 0, -0.238533, 9.25512, 0.9058, 10.0506)
+
+[node name="market_stall_fill_001" type="OmniLight3D" parent="command_center_dome/market_stall"]
+transform = Transform3D(0.123601, 0, 0.992332, 0, 1, 0, -0.992332, 0, 0.123601, 2.02101, 2.74007, -0.0198765)
+light_color = Color(0.0156863, 0.937255, 1, 1)
+
+[node name="market_stall_fill_002" type="OmniLight3D" parent="command_center_dome/market_stall"]
+transform = Transform3D(1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, 0.585154, 2.73364, -1.81354)
+
+[node name="market_stall_fill_003" type="OmniLight3D" parent="command_center_dome/market_stall"]
+transform = Transform3D(1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, -1.54827, 2.73292, 1.1429)
+
+[node name="market_stall_fill_004" type="OmniLight3D" parent="command_center_dome/market_stall"]
+transform = Transform3D(1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, -1.55237, 2.65941, -1.04728)
+
+[node name="raman_vending_machine" parent="command_center_dome" instance=ExtResource("12_1jyns")]
+transform = Transform3D(-0.381653, 0, -1.55381, 0, 1.6, 0, 1.55381, 0, -0.381653, 7.6702, 0.71022, 1.84988)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="command_center_dome/raman_vending_machine"]
+transform = Transform3D(0.624025, 0.0337619, 0.00879433, 0, -0.157543, 0.604818, 0.0348885, -0.603875, -0.157298, 0.0794133, 3.26632, 1.06561)
+light_color = Color(1, 0.258291, 0.995064, 1)
+light_energy = 2.227
+spot_range = 8.49854
+spot_angle = 30.7495
+
+[node name="pepsi_vending_machine" parent="command_center_dome" instance=ExtResource("11_eltld")]
+transform = Transform3D(-0.0595902, 0, -0.0116671, 0, 0.1, 0, 0.00700025, 0, -0.0993171, 7.9279, 0.717577, -0.288364)
+
+[node name="pepsi_vending_machine_back" type="SpotLight3D" parent="command_center_dome/pepsi_vending_machine"]
+transform = Transform3D(10.1234, 11.0598, -7.27849, 0.0571866, 5.46072, 8.37719, 7.94374, -5.1133, 3.27891, -43.7812, 71.5289, 21.7499)
+light_color = Color(0.716596, 0.810793, 1, 1)
+spot_range = 39.8088
+spot_angle = 20.1449
+
+[node name="pepsi_vending_machine_key" type="SpotLight3D" parent="command_center_dome/pepsi_vending_machine"]
+transform = Transform3D(13.7594, -8.71531, 3.53571, 0, 3.75931, 9.26648, -5.64312, -7.65005, 3.10354, 12.824, 55.7004, 14.3542)
+light_color = Color(0.672893, 0.779655, 1, 1)
+spot_range = 6.37643
+spot_angle = 18.2771
+
+[node name="robot_arm" parent="command_center_dome" instance=ExtResource("14_xdtmn")]
+transform = Transform3D(1.79758, 0.876767, 0.00158355, 0.0320133, -0.0620246, -1.99878, -0.876185, 1.79651, -0.0697811, -3.57294, 4.19358, -7.89578)
+
+[node name="light_fixture_90_deg_corner_lamp" parent="command_center_dome" instance=ExtResource("14_wayq3")]
+transform = Transform3D(-0.0163228, 0, 0.0115572, 0, 0.02, 0, -0.0115572, 0, -0.0163228, -4.72943, 1.25795, 6.49605)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="command_center_dome/light_fixture_90_deg_corner_lamp"]
+transform = Transform3D(50, 0, 1.90735e-06, 0, 50, 0, -1.90735e-06, 0, 50, 0, 7, 0)
+light_color = Color(1, 0.752941, 0.498039, 1)
+omni_range = 10.0
+
+[node name="light_fixture_90_deg_corner_lamp2" parent="command_center_dome" instance=ExtResource("14_wayq3")]
+transform = Transform3D(-0.0155209, 0, -0.0126135, 0, 0.02, 0, 0.0126135, 0, -0.0155209, 4.71537, 1.25795, 6.49605)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="command_center_dome/light_fixture_90_deg_corner_lamp2"]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0.003, 7, -0.158)
+light_color = Color(1, 0.752941, 0.498039, 1)
+omni_range = 10.0
+
+[node name="light_fixture_90_deg_corner_lamp3" parent="command_center_dome" instance=ExtResource("14_wayq3")]
+transform = Transform3D(0.019997, 0, 0.000349048, 0, 0.02, 0, -0.000349048, 0, 0.019997, 0.0262473, 1.22546, -8.00381)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="command_center_dome/light_fixture_90_deg_corner_lamp3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+light_color = Color(1, 0.752941, 0.498039, 1)
+omni_range = 10.0
+
+[node name="light_fixture_90_deg_corner_lamp4" parent="command_center_dome" instance=ExtResource("14_wayq3")]
+transform = Transform3D(0.00637919, 0, 0.0189554, 0, 0.02, 0, -0.0189554, 0, 0.00637919, -7.64761, 1.22546, -2.49083)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="command_center_dome/light_fixture_90_deg_corner_lamp4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+light_color = Color(1, 0.752941, 0.498039, 1)
+omni_range = 10.0
+
+[node name="light_fixture_90_deg_corner_lamp5" parent="command_center_dome" instance=ExtResource("14_wayq3")]
+transform = Transform3D(0.00571377, 0, -0.0191665, 0, 0.02, 0, 0.0191665, 0, 0.00571377, 7.63074, 1.21346, -2.46377)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="command_center_dome/light_fixture_90_deg_corner_lamp5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+light_color = Color(1, 0.752941, 0.498039, 1)
+omni_range = 10.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="command_center_dome"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.54092, 0)
+light_energy = 0.7
+omni_range = 10.0
+
+[node name="tripod_work_light_001" parent="command_center_dome" instance=ExtResource("15_oj18f")]
+transform = Transform3D(1.1889, 0, 0.162859, 0, 1.2, 0, -0.162859, 0, 1.1889, 2.3975, 0.714686, 7.30323)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="command_center_dome/tripod_work_light_001"]
+transform = Transform3D(0.833333, 0, 0, 0, 0.833333, 0, 0, 0, 0.833333, 0, 1.27488, 0)
+light_color = Color(0.661624, 0.813095, 0.942566, 1)
+omni_range = 10.0
+
+[node name="tripod_work_light_002" parent="command_center_dome" instance=ExtResource("15_oj18f")]
+transform = Transform3D(1.13047, 0, 0.402542, 0, 1.2, 0, -0.402542, 0, 1.13047, -2.10206, 0.703708, 7.34634)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="command_center_dome/tripod_work_light_002"]
+transform = Transform3D(0.833333, 0, 0, 0, 0.833333, 0, 0, 0, 0.833333, 0, 1.2512, 0)
+light_color = Color(0.662745, 0.811765, 0.941176, 1)
+omni_range = 10.0
+
+[node name="stasis_hud_console" parent="command_center_dome" instance=ExtResource("16_n74u0")]
+transform = Transform3D(0.776046, 0, -0.630676, 0, 1, 0, 0.630676, 0, 0.776046, -4.18818, 3.16534, -2.69694)
+
+[node name="GPU_rig" parent="command_center_dome" instance=ExtResource("17_abikf")]
+transform = Transform3D(-0.188411, 0, 0.0670903, 0, 0.2, 0, -0.0670903, 0, -0.188411, 2.7025, 1.10342, -7.36383)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="command_center_dome/GPU_rig"]
+transform = Transform3D(-5, -1.19209e-07, 0, 0, -2.18557e-07, 5, -1.19209e-07, 5, 2.18557e-07, 0.0324574, 14.9938, -1.45262)
+spot_angle = 31.2688
+
+[node name="GPU_rig2" parent="command_center_dome" instance=ExtResource("17_abikf")]
+transform = Transform3D(-0.188411, 0, 0.0670903, 0, 0.2, 0, -0.0670903, 0, -0.188411, 2.7025, 2.0577, -7.36383)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8k4hy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(-0.0662739, -0.627937, 0.775437, 0, 0.777146, 0.62932, -0.997801, 0.0417075, -0.0515045, 73.0284, 64.5725, 0)
+light_energy = 0.2
+shadow_enabled = true
+
+[node name="floating_billboard" parent="." instance=ExtResource("8_ylgsa")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -409.989, 211.008, 373.507)
+
+[node name="floating_island_dimension" parent="." instance=ExtResource("17_llx7a")]
+transform = Transform3D(0.997564, 0, -0.0697565, 0, 1, 0, 0.0697565, 0, 0.997564, -9.08038, 5.03794, 119.458)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="floating_island_dimension"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.25, 0, -44.3103)
+omni_range = 17.329
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="floating_island_dimension"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.8284, -3.05204, -62.1851)
+omni_range = 17.329
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="floating_island_dimension"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0984, -3.05204, -51.5147)
+omni_range = 17.329
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="floating_island_dimension"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6131, -3.05204, -44.1533)
+omni_range = 17.329
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="floating_island_dimension"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5834, -3.05204, -30.2776)
+omni_range = 17.329
+
+[node name="auxilery_dome" parent="." instance=ExtResource("1_5x4t5")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.598, 157.644)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="auxilery_dome"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.17383, 0)
+light_color = Color(1, 0, 0, 1)
+light_energy = 7.506
+light_indirect_energy = 2.221
+light_volumetric_fog_energy = 1.579
+omni_range = 178.52
+
+[node name="floating_island_mobile_home" parent="." instance=ExtResource("21_36yit")]
+transform = Transform3D(0.96363, 0, -0.267238, 0, 1, 0, 0.267238, 0, 0.96363, -50.5641, 31.8106, -12.0313)
+
+[node name="rigged_sci_fi_lift" parent="." instance=ExtResource("22_rj5b8")]
+transform = Transform3D(0.282341, 0, 0.959314, 0, 1, 0, -0.959314, 0, 0.282341, -13.0565, 2.28439, 157.149)
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("23_if4xy")]
+transform = Transform3D(-0.760406, 0, 0.649448, 0, 1, 0, -0.649448, 0, -0.760406, -19.8012, 0.92062, 38.6662)

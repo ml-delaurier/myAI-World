@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cckaadub02imd"]
+
+[ext_resource type="PackedScene" uid="uid://b4abkm5ilohns" path="res://assets/models/small_hexagon_glass_dome/small_hexagon_glass_dome.glb" id="1_dmr7g"]
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_dmr7g")]
+
+[node name="small sidewalk" parent="Sketchfab_model/a216ea8c27844ec8a84214b703735870_fbx/RootNode/small dome empty" index="8"]
+visible = false
+
+[node name="small sidewalk_site walks _0" parent="Sketchfab_model/a216ea8c27844ec8a84214b703735870_fbx/RootNode/small dome empty/small sidewalk" index="0"]
+visible = false
+
+[node name="small road" parent="Sketchfab_model/a216ea8c27844ec8a84214b703735870_fbx/RootNode/small dome empty" index="9"]
+visible = false
+
+[node name="small sidewalk_001" parent="Sketchfab_model/a216ea8c27844ec8a84214b703735870_fbx/RootNode" index="3"]
+visible = false

@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://cwosye8esdfhx"]
+
+[ext_resource type="Script" path="res://scripts/player/player_controller.gd" id="1_player"]
+[ext_resource type="Script" path="res://scripts/player/state_machine.gd" id="2_state"]
+[ext_resource type="Script" path="res://scripts/player/states/idle_state.gd" id="3_idle"]
+[ext_resource type="Script" path="res://scripts/player/states/walk_state.gd" id="4_walk"]
+[ext_resource type="Script" path="res://scripts/player/states/sprint_state.gd" id="5_sprint"]
+[ext_resource type="Script" path="res://scripts/player/states/jump_state.gd" id="6_jump"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_player"]
+radius = 0.361583
+height = 2.62752
+
+[node name="Player" type="CharacterBody3D" groups=["player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_mask = 3
+floor_snap_length = 0.5
+script = ExtResource("1_player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_player")
+
+[node name="CameraMount" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.847852, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraMount"]
+current = true
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_state")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("3_idle")
+
+[node name="Walk" type="Node" parent="StateMachine"]
+script = ExtResource("4_walk")
+
+[node name="Sprint" type="Node" parent="StateMachine"]
+script = ExtResource("5_sprint")
+
+[node name="Jump" type="Node" parent="StateMachine"]
+script = ExtResource("6_jump")

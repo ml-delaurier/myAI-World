@@ -1,0 +1,15 @@
+.godot/
+.vscode/
+addons/
+assets/
+docs/
+data/
+logs/
+resources/
+*.tmp
+*.log
+*.env
+.venv/
+# windsurf rules
+.windsurfrules
+*.db
